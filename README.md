@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Algoritmo para Validação de CPF e CNPJ reais em TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## O algoritmo de validação do CPF calcula o primeiro dígito verificador a partir dos 9 primeiros dígitos do CPF, e em seguida, calcula o segundo dígito verificador a partir dos 9 (nove) primeiros dígitos do CPF, mais o primeiro dígito, obtido na primeira parte.
+```
+const strings = [
+    [10, 9, 8, 7, 6, 5, 4, 3, 2],
+    [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]
+];
 
-## Available Scripts
+export const cpfValidate = (cpf: string): boolean => {
+    let numbers = cpf.slice(0, -2);
+    let digits = cpf.slice(-2);
 
-In the project directory, you can run:
+    let firstDigit = getFirstDigit(numbers);
 
-### `npm start`
+    if (repeatedDigit(cpf)) {
+        if (firstDigit === Number(digits[0])) {
+            let secondDigit = getSecondDigit(numbers + firstDigit);
+            return secondDigit === Number(digits[1]) ? true : false;
+        }
+    }
+    return false;
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+const getFirstDigit = (numbers: string): number => {
+    let sum = 0;
+    for (let i in strings[0]) {
+        sum += Number(numbers[i]) * strings[0][i];
+    }
+    let rest = sum % 11;
+    const digit = rest < 2 ? 0 : (11 - rest);
+    return digit;
+}
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+const getSecondDigit = (numbers: string): number => {
+    let sum = 0;
+    for (let i in strings[1]) {
+        sum += Number(numbers[i]) * strings[1][i];
+    }
+    let rest = sum % 11;
+    const digit = rest < 2 ? 0 : (11 - rest);
+    return digit;
+}
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+const repeatedDigit = (cpf: string): boolean => {
+    const first = cpf[0];
+    let different = false;
+    for (let i = 1; i < cpf.length; i++) {
+        if (cpf[i] !== first) {
+            different = true;
+        }
+    }
+    return different;
+}
+```
