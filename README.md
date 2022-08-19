@@ -101,4 +101,4 @@ const getSecondDigit = (numbers: string): number => {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/104205613/185526125-f739a154-a24f-4ad3-bc36-e534ddb4b4c1.png)
+![image](https://user-images.githubusercontent.com/104205613/185526437-4087428a-ecca-41b3-b80f-8569b416748c.png)
