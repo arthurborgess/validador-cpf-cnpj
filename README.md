@@ -5,7 +5,7 @@
 
 
 ## O algoritmo de validação do CPF elimina a possibilidade de dígitos repetidos consecutivamente, e calcula o primeiro dígito verificador a partir dos 9 primeiros dígitos do CPF, e em seguida, calcula o segundo dígito verificador a partir dos 9 primeiros dígitos do CPF, mais o primeiro dígito, obtido na primeira parte.
-```
+```ts
 const strings = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2],
     [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]
@@ -61,7 +61,7 @@ const repeatedDigit = (cpf: string): boolean => {
 
 
 ## Já o algoritmo de validação do CNPJ calcula o primeiro dígito verificador a partir dos 12 primeiros dígitos do CNPJ, e em seguida, calcula o segundo dígito verificador a partir dos 12 primeiros dígitos do CNPJ, mais o primeiro dígito, obtido na primeira parte.
-```
+```ts
 const strings = [
     [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2],
     [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
