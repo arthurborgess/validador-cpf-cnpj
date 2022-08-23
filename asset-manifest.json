@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/validador-cpf-cnpj/static/css/main.616e0428.css",
-    "main.js": "/validador-cpf-cnpj/static/js/main.1b58729f.js",
+    "main.js": "/validador-cpf-cnpj/static/js/main.d63835f2.js",
     "index.html": "/validador-cpf-cnpj/index.html",
     "main.616e0428.css.map": "/validador-cpf-cnpj/static/css/main.616e0428.css.map",
-    "main.1b58729f.js.map": "/validador-cpf-cnpj/static/js/main.1b58729f.js.map"
+    "main.d63835f2.js.map": "/validador-cpf-cnpj/static/js/main.d63835f2.js.map"
   },
   "entrypoints": [
     "static/css/main.616e0428.css",
-    "static/js/main.1b58729f.js"
+    "static/js/main.d63835f2.js"
   ]
 }
