@@ -7,9 +7,8 @@ export const cpfValidate = (cpf: string): boolean => {
     let numbers = cpf.slice(0, -2);
     let digits = cpf.slice(-2);
 
-    let firstDigit = getFirstDigit(numbers);
-
     if (repeatedDigit(cpf)) {
+        let firstDigit = getFirstDigit(numbers);
         if (firstDigit === Number(digits[0])) {
             let secondDigit = getSecondDigit(numbers + firstDigit);
             return secondDigit === Number(digits[1]) ? true : false;
